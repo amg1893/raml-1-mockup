@@ -1,0 +1,166 @@
+#%RAML 1.0
+title: Stripe integration service
+version: v1
+baseUri: https://localhost/{version}/api
+
+securitySchemes:
+  accessToken:
+    description: accessToken
+    type: x-accessToken
+    describedBy:
+      headers:
+        accessToken:
+          description: Used to send a custom token.
+          type: string
+      responses:
+        401:
+          description: Bad token.
+
+types:
+  Connection:
+    type: object
+    properties:
+      userId: number
+      stripeId: string
+      publishableKey: string
+    example:
+      userId: 12345
+      stripeId: g43g4g43g43
+      publishableKey: 34g34g34g43g43
+  ErrorMessage:
+    type: object
+    properties:
+      message: string
+
+traits:
+  HeartBeat:
+    description: Service health check.
+    responses:
+      200:
+        body:
+          text/plain:
+            type: string
+            example:
+              "OK"
+  SecuredRoute:
+    securedBy: [accessToken]
+
+/heartbeat:
+  get:
+    is:  [HeartBeat]
+
+/connection/client/{clientId}:
+  get:
+    is: [SecuredRoute]
+    description: Get connections for client.
+    responses:
+      200:
+        body:
+          application/json:
+            type: Connection[]
+            example:
+              - userId: 12345
+                stripeId: g43g4g43g43
+                publishableKey: 34g34g34g43g43
+      500:
+        body:
+          application/json:
+            type: ErrorMessage
+            example:
+              message: Error finding connections by client
+  post:
+    is: [SecuredRoute]
+    description: Create connection
+    queryParameters:
+      code:
+        description: Authorization code.
+        type: string
+        required: true
+    responses:
+      201:
+        body:
+          text/plain:
+            type: string
+            example:
+              "The request has been fulfilled and resulted in a new resource being created."
+      500:
+        body:
+          application/json:
+            type: ErrorMessage
+            example:
+              message: Error creating connection
+
+/connection/client/{clientId}/{stripeId}:
+  get:
+    is: [SecuredRoute]
+    description: Get connection by client and Stripe ID.
+    responses:
+      200:
+        body:
+          application/json:
+            type: Connection
+            example:
+                userId: 664323
+                stripeId: k87k87k87
+                publishableKey: k87k87k87k78k87k8
+      404:
+        body:
+          text/plain:
+            type: string
+            example:
+              "The requested resource could not be found."
+      500:
+        body:
+          application/json:
+            type: ErrorMessage
+            example:
+              message: Error finding connection
+  delete:
+    is: [SecuredRoute]
+    description: Delete connection by client and Stripe ID.
+    responses:
+      200:
+        body:
+          text/plain:
+            type: string
+            example:
+              "OK"
+      500:
+        body:
+          application/json:
+            type: ErrorMessage
+            example:
+              message: Error deleting connection
+
+/connection/client/{clientId}/{stripeId}/sync:
+  put:
+    is: [SecuredRoute]
+    description: Run synchronization.
+    queryParameters:
+      startDate:
+        description: Start date in yyyy-mm-dd format.
+        type: string
+        required: true
+      endDate:
+        description: End date in yyyy-mm-dd format.
+        type: string
+        required: true
+    responses:
+      200:
+        body:
+          text/plain:
+            type: string
+            example:
+              "OK"
+      400:
+        body:
+          application/json:
+            type: ErrorMessage
+            example:
+              message: Format of start date or end date was not 'yyyy-MM-dd'
+      500:
+        body:
+          application/json:
+            type: ErrorMessage
+            example:
+              message: Error syncing connection
