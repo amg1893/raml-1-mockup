@@ -3,6 +3,9 @@ RAML Mock-ups!
 
 Fork of the [https://github.com/gextech/raml-mockup](gextech/raml-mockup) repo.
 
+Original repo mostly relies on RAML 0.8 schema definitions, not on 1.0 types. The goal if this project is to implement
+better support for 1.0 features, types in particular. 
+
 Features
 --------
 
@@ -10,6 +13,15 @@ Features
 - Uses `refaker` for resolving remote/local $refs.
 - It's fully tested and coveraged.
 - Has watch mode built-in.
+
+Improvements in comparison to the original fork
+--------
+
+- Supports all content types, not only `application/json`
+- Readme tweaks
+
+How to setup & use
+--------
 
 Install `raml-mockup` globally:
 
@@ -20,7 +32,7 @@ $ npm install -g raml-mockup
 Then starts a mock-server from your RAML:
 
 ```bash
-$ raml-mockup src/api.raml -d src/schemas -f http://json-schema.org -r src/formats.js -p 5000 -w
+$ raml-mockup src/api.raml -p 5000 -w
 ```
 
 Now you can make requests through the mocked-API:
@@ -34,14 +46,21 @@ The better if you're using [httpie](https://github.com/jakubroztocil/httpie).
 Options
 -------
 
-- `--directory` &rarr; Used with `--fakeroot` to resolve _faked_ references through this directory.
-- `--fakeroot` &rarr; BaseURI for references that will fake (i.e. `http://json-schema.org`).
-- `--statuses` &rarr; Use custom statusCode(s) for all matched resources.
-- `--formats` &rarr; CommonJS module-id or path for custom formats.
+General
+-----------
+
 - `--timeout` &rarr; Timeout requests from remote dereferencing.
 - `--silent` &rarr; Turns off the reporting through the STDOUT.
 - `--watch` &rarr; Enables the watch mode for mock-server.
 - `--port` &rarr; Custom port for mock-server.
+- `--statuses` &rarr; Use custom statusCode(s) for all matched resources.
+
+Mocking for 0.8 schema definitions
+-----------
+
+- `--directory` &rarr; Used with `--fakeroot` to resolve _faked_ references through this directory.
+- `--fakeroot` &rarr; BaseURI for references that will fake (i.e. `http://json-schema.org`).
+- `--formats` &rarr; CommonJS module-id or path for custom formats.
 
 Run `raml-mockup -h` to display all usage info.
 
