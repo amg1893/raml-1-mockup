@@ -18,6 +18,7 @@ Improvements in comparison to the original fork
 --------
 
 - Supports all content types, not only `application/json`
+- Uses Type examples for mocking (if resource-level example is not defined)
 - Readme tweaks
 
 How to setup & use
