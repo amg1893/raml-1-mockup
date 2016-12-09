@@ -51,7 +51,7 @@ describe 'CLI options', ->
       cmd '-v', done
 
     it 'should display the current version', ->
-      expect(cmd.stdout).toMatch /raml-mockup \d+\.\d+\.\d+/
+      expect(cmd.stdout).toMatch /raml-1-mockup \d+\.\d+\.\d+/
 
     it 'should exit with 1', ->
       expect(cmd.exitStatus).toEqual 1

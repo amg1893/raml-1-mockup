@@ -44,7 +44,7 @@ function usage(header) {
   }
 
   message.push('Usage:');
-  message.push('  raml-mockup src/index.raml [OPTIONS]');
+  message.push('  raml-1-mockup src/index.raml [OPTIONS]');
 
   message.push('Options:');
   message.push('  -p, --port         The port used for exposing the faked-api');

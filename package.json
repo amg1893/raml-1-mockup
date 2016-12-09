@@ -1,9 +1,9 @@
 {
-  "name": "raml-mockup",
-  "version": "0.2.1",
+  "name": "raml-1-mockup",
+  "version": "0.3.0",
   "description": "Express-based mocking service for RAML development",
   "bin": {
-    "raml-mockup": "bin/cli.js"
+    "raml-1-mockup": "bin/cli.js"
   },
   "scripts": {
     "dev": "jasmine-node spec --coffee --verbose --autoTest --watchFolders lib",
@@ -17,9 +17,19 @@
     "name": "Alvaro Cabrera",
     "email": "pateketrueke@gmail.com"
   },
+  "contributors": [
+    {
+      "name": "Alvaro Cabrera",
+      "email": "pateketrueke@gmail.com"
+    },
+    {
+      "name": "Yaroslav Tkachenko",
+      "email": "sapiensy@gmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/gextech/raml-mockup"
+    "url": "https://github.com/sap1ens/raml-1-mockup"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"

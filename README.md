@@ -9,8 +9,8 @@ better support for 1.0 features, types in particular.
 Features
 --------
 
-- Uses `json-schema-faker` for accurate mocked responses.
-- Uses `refaker` for resolving remote/local $refs.
+- Uses `json-schema-faker` for accurate mocked responses (for 0.8 schemas).
+- Uses `refaker` for resolving remote/local $refs (for 0.8 schemas).
 - It's fully tested and coveraged.
 - Has watch mode built-in.
 
@@ -23,16 +23,16 @@ Improvements in comparison to the original fork
 How to setup & use
 --------
 
-Install `raml-mockup` globally:
+Install `raml-1-mockup` globally:
 
 ```bash
-$ npm install -g raml-mockup
+$ npm install -g raml-1-mockup
 ```
 
 Then starts a mock-server from your RAML:
 
 ```bash
-$ raml-mockup src/api.raml -p 5000 -w
+$ raml-1-mockup src/api.raml -p 5000 -w
 ```
 
 Now you can make requests through the mocked-API:
@@ -62,7 +62,7 @@ Mocking for 0.8 schema definitions
 - `--fakeroot` &rarr; BaseURI for references that will fake (i.e. `http://json-schema.org`).
 - `--formats` &rarr; CommonJS module-id or path for custom formats.
 
-Run `raml-mockup -h` to display all usage info.
+Run `raml-1-mockup -h` to display all usage info.
 
 queryParams
 -----------
