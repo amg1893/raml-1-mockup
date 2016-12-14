@@ -3,8 +3,8 @@ RAML Mock-ups!
 
 Fork of the [https://github.com/gextech/raml-mockup](gextech/raml-mockup) repo.
 
-Original repo mostly relies on RAML 0.8 schema definitions, not on 1.0 types. The goal if this project is to implement
-better support for 1.0 features, types in particular. 
+Original repo mostly relies on RAML 0.8 schema definitions, not on 1.0 types. The goal of this project is to implement
+better support for 1.0 features, types in particular. It uses type examples as mocking data. 
 
 Features
 --------
