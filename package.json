@@ -40,7 +40,7 @@
     "chokidar": "^1.6.0",
     "cors": "^2.7.1",
     "express": "^4.13.3",
-    "json-schema-faker": "^0.3.0",
+    "json-schema-faker": "^0.5.0-rc13",
     "minimist": "^1.2.0",
     "raml-1-parser": "^1.0.0",
     "refaker": "^0.3.1"
