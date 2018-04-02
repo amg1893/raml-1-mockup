@@ -1,7 +1,7 @@
 {
   "name": "raml-1-mockup",
-  "version": "0.5.0",
-  "description": "Express-based mocking service for RAML development",
+  "version": "0.5.1",
+  "description": "Express-based mocking service for RAML 1.0 development",
   "bin": {
     "raml-1-mockup": "bin/cli.js"
   },
@@ -14,10 +14,14 @@
     "test": "npm run dev:lint && npm run dev:spec"
   },
   "author": {
-    "name": "Alvaro Cabrera",
-    "email": "pateketrueke@gmail.com"
+    "name": "Adrián Mora",
+    "email": "adrianmora784@gmail.com"
   },
   "contributors": [
+    {
+      "name": "Adrián Mora",
+      "email": "adrianmora784@gmail.com"
+    },
     {
       "name": "Alvaro Cabrera",
       "email": "pateketrueke@gmail.com"
@@ -29,7 +33,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/sap1ens/raml-1-mockup"
+    "url": "https://github.com/amg1893/raml-1-mockup"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
