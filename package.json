@@ -1,5 +1,5 @@
 {
-  "name": "raml-1-mockup",
+  "name": "raml-10-mockup",
   "version": "0.5.1",
   "description": "Express-based mocking service for RAML 1.0 development",
   "bin": {
